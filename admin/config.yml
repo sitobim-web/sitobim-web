@@ -70,3 +70,14 @@ collections:
       - {label: "Enlace de Registro", name: "link", widget: "string", required: false}
       - {label: "Afiche / Imagen", name: "image", widget: "image"}
       - {label: "Detalles", name: "body", widget: "markdown"}
+      - name: "lineas_investigacion"
+    label: "Líneas de Investigación"
+    folder: "content/lineas"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título del Área", name: "title", widget: "string" }
+      - { label: "Clase del Ícono FontAwesome", name: "icon", widget: "string", default: "fa-vial", hint: "Ejemplos: fa-vial, fa-sliders, fa-microscope, fa-fish-fins, fa-dna" }
+      - { label: "Resumen Corto (Tarjeta)", name: "summary", widget: "text" }
+      - { label: "Detalle Extenso (Modal)", name: "description", widget: "markdown" }
+      - { label: "Imagen Destacada", name: "image", widget: "image", required: false }
