@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SITOBIM - Semillero de Investigación</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0e3a60',
+                            primary: '#1d5b90',
+                            light: '#4290ca',
+                            accent: '#64b5f6',
+                            bg: '#f0f7fc',
+                            card: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0e3a60 0%, #1d5b90 50%, #4290ca 100%);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #0e3a60 0%, #1d5b90 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body class="bg-brand-bg text-slate-800 font-sans min-h-screen flex flex-col">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="showSection('inicio')">
+                    <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center text-white shadow-lg">
+                        <i class="fa-solid fa-fish-fins text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-wider text-brand-dark">SITOBIM</span>
+                        <p class="text-xs text-brand-light font-medium leading-none">Tecnología, Optimización y Bionutrientes Marinos</p>
+                    </div>
+                </div>
+
+                <!-- Menú de Navegación Desktop -->
+                <nav class="hidden md:flex space-x-1 lg:space-x-4">
+                    <button onclick="showSection('inicio')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-brand-dark hover:text-brand-light hover:bg-brand-bg transition">Inicio</button>
+                    <button onclick="showSection('noticias')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-600 hover:text-brand-light hover:bg-brand-bg transition">Noticias</button>
+                    <button onclick="showSection('conocimientos')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-600 hover:text-brand-light hover:bg-brand-bg transition">Saberes</button>
+                    <button onclick="showSection('infografias')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-600 hover:text-brand-light hover:bg-brand-bg transition">Infografías</button>
+                    <button onclick="showSection('guias')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-600 hover:text-brand-light hover:bg-brand-bg transition">Guias Lab</button>
+                    <button onclick="showSection('proyectos')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-600 hover:text-brand-light hover:bg-brand-bg transition">Proyectos</button>
+                    <button onclick="showSection('talleres')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-600 hover:text-brand-light hover:bg-brand-bg transition">Talleres</button>
+                </nav>
+
+                <!-- Botón Postulación Directo a Forms -->
+                <div class="hidden md:flex">
+                    <a href="https://forms.gle/k8fjHm7hkEfUR3738" target="_blank" class="gradient-bg text-white font-bold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:opacity-90 transition flex items-center space-x-2">
+                        <span>Postula 2026</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-brand-dark p-2 rounded-md focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-4 space-y-2">
+            <button onclick="showSection('inicio'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-brand-dark font-semibold">Inicio</button>
+            <button onclick="showSection('noticias'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-slate-600 font-semibold">Noticias y Divulgación</button>
+            <button onclick="showSection('conocimientos'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-slate-600 font-semibold">Biblioteca de Saberes</button>
+            <button onclick="showSection('infografias'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-slate-600 font-semibold">Infografías Educativas</button>
+            <button onclick="showSection('guias'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-slate-600 font-semibold">Guías de Laboratorio</button>
+            <button onclick="showSection('proyectos'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-slate-600 font-semibold">Proyectos Realizados</button>
+            <button onclick="showSection('talleres'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-slate-600 font-semibold">Talleres y Videos</button>
+            <a href="https://forms.gle/k8fjHm7hkEfUR3738" target="_blank" class="block text-center gradient-bg text-white font-bold py-2 rounded-lg mt-2">Postula 2026</a>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL DINÁMICO -->
+    <main class="flex-grow">
+
+        <!-- ================= SECCIÓN INICIO ================= -->
+        <section id="sec-inicio" class="page-section">
+            <!-- Hero Banner -->
+            <div class="gradient-bg text-white py-20 px-4 sm:px-6 lg:px-8">
+                <div class="max-w-5xl mx-auto text-center space-y-6">
+                    <span class="inline-block bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide">
+                        Convocatoria Abierta 2026 - SITOBIM
+                    </span>
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                        "Empieza tu camino en la investigación"
+                    </h1>
+                    <p class="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto font-light">
+                        Haz ciencia que genere impacto en bionutrientes marinos, optimización de procesos y biotecnología aplicada.
+                    </p>
+                    <div class="pt-4 flex flex-wrap justify-center gap-4">
+                        <a href="https://forms.gle/k8fjHm7hkEfUR3738" target="_blank" class="bg-white text-brand-dark font-extrabold px-8 py-3.5 rounded-full shadow-lg hover:bg-blue-50 transition transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-paper-plane mr-2 text-brand-primary"></i> Postula Ahora
+                        </a>
+                        <button onclick="showSection('conocimientos')" class="bg-transparent border-2 border-white text-white font-semibold px-8 py-3.5 rounded-full hover:bg-white/10 transition">
+                            Explorar Contenidos
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Áreas de Investigación -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-brand-dark">Líneas de Investigación y Desarrollo</h2>
+                    <p class="text-slate-600 mt-2">Conoce las áreas en las que trabajamos activamente en nuestro laboratorio</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl transition group">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-brand-primary flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition transform">
+                            <i class="fa-solid fa-flask-vial"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Bionutrientes Marinos</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Aislamiento, caracterización y evaluación de compuestos bioactivos, péptidos y aceites extraídos de fuentes hidrobiológicas.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl transition group">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-brand-primary flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition transform">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Optimización de Procesos</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Modelamiento químico y matemático para la extracción eficiente de bioactivos y diseño de procesos sustentables.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl transition group">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-brand-primary flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition transform">
+                            <i class="fa-solid fa-microscope"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark mb-3">Análisis Químico y Biotecnología</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Caracterización analítica avanzada mediante HPLC, GC-FID, ensayos antioxidantes (DPPH/ABTS) e inhibición de la ECA.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECCIÓN NOTICIAS Y DIVULGACIÓN ================= -->
+        <section id="sec-noticias" class="page-section hidden py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-extrabold text-brand-dark">Divulgación Científica y Noticias</h2>
+                <p class="text-slate-600 mt-2">Avances, hallazgos y novedades de la ciencia marina al alcance de todos</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Noticia 1 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100 flex flex-col">
+                    <div class="h-48 bg-gradient-to-r from-blue-600 to-cyan-500 flex items-center justify-center text-white text-5xl">
+                        <i class="fa-solid fa-bacteria"></i>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-brand-light uppercase tracking-wider">Biotecnología Marítima</span>
+                            <h3 class="text-xl font-bold text-brand-dark mt-2 mb-3">Evaluación Antioxidante DPPH y ABTS en Hidrolizados</h3>
+                            <p class="text-slate-600 text-sm mb-4">
+                                Investigadores del semillero analizan la capacidad captadora de radicales libres de péptidos marinos obtenidos por hidrólisis enzimática.
+                            </p>
+                        </div>
+                        <button onclick="openModal('modal-noticia-1')" class="text-brand-primary font-bold text-sm flex items-center space-x-2 hover:underline">
+                            <span>Leer artículo completo</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Noticia 2 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100 flex flex-col">
+                    <div class="h-48 bg-gradient-to-r from-slate-700 to-blue-900 flex items-center justify-center text-white text-5xl">
+                        <i class="fa-solid fa-filter"></i>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-brand-light uppercase tracking-wider">Ecología Marítima</span>
+                            <h3 class="text-xl font-bold text-brand-dark mt-2 mb-3">Identificación de Microplásticos en Organismos Marinos</h3>
+                            <p class="text-slate-600 text-sm mb-4">
+                                Metodologías de aislamiento e identificación espectroscópica aplicadas al estudio de microplásticos en especies locales.
+                            </p>
+                        </div>
+                        <button onclick="openModal('modal-noticia-2')" class="text-brand-primary font-bold text-sm flex items-center space-x-2 hover:underline">
+                            <span>Leer artículo completo</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECCIÓN INFOGRAFÍAS Y SABÍAS QUÉ ================= -->
+        <section id="sec-infografias" class="page-section hidden py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-extrabold text-brand-dark">Infografías Educativas y "Sabías Que..."</h2>
+                <p class="text-slate-600 mt-2">Aprende conceptos científicos clave de forma visual e interactiva</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Infografía Card 1 -->
+                <div class="bg-white rounded-2xl shadow-md p-6 border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="p-3 bg-amber-100 text-amber-600 rounded-xl font-bold text-xl"><i class="fa-solid fa-lightbulb"></i></span>
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">¿Sabías qué?</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-dark mb-2">Enzimas Bioactivas y la Presión Arterial</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Los hidrolizados de proteína marina contienen péptidos inhibidores de la ECA (Enzima Convertidora de Angiotensina), los cuales ayudan a regular la presión arterial de forma natural.
+                        </p>
+                    </div>
+                    <button onclick="openModal('modal-info-1')" class="gradient-bg text-white font-semibold py-2 rounded-xl text-sm w-full shadow-sm hover:opacity-90">
+                        Ver Infografía Completa
+                    </button>
+                </div>
+
+                <!-- Infografía Card 2 -->
+                <div class="bg-white rounded-2xl shadow-md p-6 border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <span class="p-3 bg-blue-100 text-brand-primary rounded-xl font-bold text-xl"><i class="fa-solid fa-vial-circle-check"></i></span>
+                            <span class="text-xs font-bold text-brand-primary uppercase tracking-widest">Infografía Científica</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-dark mb-2">Paso a Paso: Extracción HPLC y GC-FID</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Guía infográfica sobre cómo preparar muestras lipídicas y proteicas para su cuantificación en Cromatografía Líquida y de Gases.
+                        </p>
+                    </div>
+                    <button onclick="openModal('modal-info-2')" class="gradient-bg text-white font-semibold py-2 rounded-xl text-sm w-full shadow-sm hover:opacity-90">
+                        Ver Infografía Completa
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECCIÓN SABERES Y CONOCIMIENTOS ================= -->
+        <section id="sec-conocimientos" class="page-section hidden py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-extrabold text-brand-dark">Biblioteca de Saberes para Estudiantes</h2>
+                <p class="text-slate-600 mt-2">Módulos de formación clave para potenciar tu perfil científico</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-md border-l-8 border-brand-primary">
+                    <h3 class="text-xl font-bold text-brand-dark mb-2"><i class="fa-solid fa-book-open text-brand-light mr-2"></i> Química Analítica de Compuestos Marinos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Aprende sobre la separación de perfil de ácidos grasos (Omega-3, EPA, DHA) utilizando GC-FID y caracterización cromatográfica.
+                    </p>
+                    <span class="text-xs bg-blue-50 text-brand-primary px-3 py-1 rounded-full font-semibold">Nivel: Intermedio</span>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-md border-l-8 border-brand-dark">
+                    <h3 class="text-xl font-bold text-brand-dark mb-2"><i class="fa-solid fa-vial text-brand-light mr-2"></i> Ensayos de Capacidad Antioxidante</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Aprende la teoría detrás de los ensayos espectrofotométricos DPPH, ABTS y su expresión en equivalentes Trolox.
+                    </p>
+                    <span class="text-xs bg-blue-50 text-brand-primary px-3 py-1 rounded-full font-semibold">Nivel: Básico - Intermedio</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECCIÓN GUIAS DE LABORATORIO ================= -->
+        <section id="sec-guias" class="page-section hidden py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-extrabold text-brand-dark">Guías y Protocolos de Laboratorio</h2>
+                <p class="text-slate-600 mt-2">Descarga protocolos estandarizados para tus prácticas de investigación</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100">
+                <div class="divide-y divide-slate-100">
+                    <div class="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="p-4 bg-red-50 text-red-500 rounded-xl text-2xl">
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">Guía No. 01: Protocolo de Hidrólisis Enzimática con Alcalase 2.4L</h4>
+                                <p class="text-xs text-slate-500">Formato PDF • Actualizado 2026</p>
+                            </div>
+                        </div>
+                        <a href="#" class="bg-slate-100 text-brand-dark font-semibold px-4 py-2 rounded-xl text-sm hover:bg-brand-primary hover:text-white transition text-center">
+                            <i class="fa-solid fa-download mr-1"></i> Descargar Guía
+                        </a>
+                    </div>
+
+                    <div class="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="p-4 bg-red-50 text-red-500 rounded-xl text-2xl">
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">Guía No. 02: Aislamiento e Identificación de Microplásticos en Matriz Marina</h4>
+                                <p class="text-xs text-slate-500">Formato PDF • Actualizado 2026</p>
+                            </div>
+                        </div>
+                        <a href="#" class="bg-slate-100 text-brand-dark font-semibold px-4 py-2 rounded-xl text-sm hover:bg-brand-primary hover:text-white transition text-center">
+                            <i class="fa-solid fa-download mr-1"></i> Descargar Guía
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECCIÓN PROYECTOS DE INVESTIGACIÓN ================= -->
+        <section id="sec-proyectos" class="page-section hidden py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-extrabold text-brand-dark">Proyectos de Investigación Realizados</h2>
+                <p class="text-slate-600 mt-2">Investigación aplicada con sello de innovación y rigor científico</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-100">
+                    <span class="text-xs bg-emerald-100 text-emerald-700 font-bold px-3 py-1 rounded-full uppercase">En Ejecución</span>
+                    <h3 class="text-xl font-bold text-brand-dark mt-4 mb-2">Obtención y Caracterización de Bionutrientes a partir de Residuos Marinos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Proyecto enfocado en la revalorización de subproductos marinos para la extracción de péptidos con actividad antioxidante e inhibidora de la ECA.
+                    </p>
+                    <button onclick="openModal('modal-proyecto-1')" class="text-brand-primary font-bold text-sm hover:underline">
+                        Ver Detalles del Proyecto →
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECCIÓN TALLERES Y VIDEOS ================= -->
+        <section id="sec-talleres" class="page-section hidden py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-extrabold text-brand-dark">Talleres Grabados y Material Audiovisual</h2>
+                <p class="text-slate-600 mt-2">Revive nuestras capacitaciones, talleres de laboratorio y seminarios</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Video Item 1 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100">
+                    <div class="aspect-video bg-black flex items-center justify-center text-white relative">
+                        <i class="fa-regular fa-circle-play text-6xl text-brand-accent hover:scale-110 transition cursor-pointer"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-brand-dark text-lg">Taller: Preparación de Muestras para Espectrofotometría DPPH</h3>
+                        <p class="text-slate-600 text-sm mt-2">Grabación del taller práctico realizado en el laboratorio con los miembros del semillero.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- VENTANAS MODALES INTERACTIVAS -->
+
+    <!-- Modal Noticia 1 -->
+    <div id="modal-noticia-1" class="modal fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-noticia-1')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <span class="text-xs font-bold text-brand-light uppercase tracking-wider">Divulgación Científica</span>
+            <h3 class="text-2xl font-bold text-brand-dark mt-2 mb-4">Evaluación Antioxidante DPPH y ABTS en Hidrolizados Enzimáticos</h3>
+            <p class="text-slate-600 text-sm leading-relaxed space-y-4">
+                La generación de radicales libres y el estrés oxidativo son factores determinantes en el deterioro celular. En las investigaciones llevadas a cabo por SITOBIM, se evaluaron hidrolizados proteicos marinos obtenidos mediante la enzima Alcalase 2.4L.
+                <br><br>
+                Los resultados mostraron una capacidad de atrapamiento de radicales libres superior al 75% en ensayos de DPPH y ABTS, expresando la actividad antioxidante en micromoles equivalentes de Trolox por gramo de muestra.
+            </p>
+        </div>
+    </div>
+
+    <!-- Modal Infografía 1 -->
+    <div id="modal-info-1" class="modal fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('modal-info-1')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="w-20 h-20 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto text-3xl mb-4">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-brand-dark mb-4">Infografía: Inhibición de la Enzima ECA</h3>
+            <p class="text-slate-600 text-sm text-left leading-relaxed mb-6">
+                <strong>¿Cómo funcionan los péptidos marinos?</strong><br>
+                1. La Enzima Convertidora de Angiotensina (ECA) transforma la angiotensina I en angiotensina II, lo que causa vasoconstricción y eleva la presión arterial.<br>
+                2. Los péptidos bioactivos marinos se acoplan al sitio activo de la ECA.<br>
+                3. Al bloquer este sitio, impiden la vasoconstricción, promoviendo la salud cardiovascular de forma natural.
+            </p>
+            <button onclick="closeModal('modal-info-1')" class="gradient-bg text-white font-bold px-6 py-2 rounded-xl text-sm">Cerrar Visor</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <span class="text-2xl font-extrabold tracking-wider">SITOBIM</span>
+                <p class="text-slate-300 text-xs mt-2 leading-relaxed">
+                    Semillero de Investigación en Tecnología, Optimización y Bionutrientes Marinos. Promoviendo la excelencia científica en investigación hidrobiológica.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm text-brand-accent uppercase tracking-wider mb-4">Enlaces Rápidos</h4>
+                <ul class="space-y-2 text-sm text-slate-300">
+                    <li><button onclick="showSection('inicio')" class="hover:text-white">Inicio</button></li>
+                    <li><button onclick="showSection('noticias')" class="hover:text-white">Noticias</button></li>
+                    <li><button onclick="showSection('guias')" class="hover:text-white">Guías de Laboratorio</button></li>
+                    <li><a href="https://forms.gle/k8fjHm7hkEfUR3738" target="_blank" class="hover:text-white">Convocatoria 2026</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm text-brand-accent uppercase tracking-wider mb-4">Contacto y Postulación</h4>
+                <p class="text-sm text-slate-300 mb-4">Universidad Nacional Agraria La Molina (UNALM)</p>
+                <a href="https://forms.gle/k8fjHm7hkEfUR3738" target="_blank" class="inline-block bg-brand-light text-white font-bold px-4 py-2 rounded-lg text-sm hover:bg-brand-primary transition">
+                    Formulario de Postulación
+                </a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-700/50 mt-8 pt-6 text-center text-xs text-slate-400">
+            © 2026 SITOBIM - Semillero de Investigación. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT DE INTERACTIVIDAD -->
+    <script>
+        // Cambiar entre secciones (SPA)
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => sec.classList.add('hidden'));
+
+            const target = document.getElementById('sec-' + sectionId);
+            if (target) {
+                target.classList.remove('hidden');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle menú móvil
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Funciones de Ventanas Modales
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
