@@ -16,3 +16,57 @@ collections:
       - {label: "Fecha", name: "date", widget: "datetime"}
       - {label: "Imagen", name: "image", widget: "image"}
       - {label: "Contenido", name: "body", widget: "markdown"}
+
+  - name: "saberes"
+    label: "Saberes"
+    folder: "content/saberes"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Título del Tema", name: "title", widget: "string"}
+      - {label: "Autor", name: "author", widget: "string", required: false}
+      - {label: "Imagen", name: "image", widget: "image"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+  - name: "infografias"
+    label: "Infografías"
+    folder: "content/infografias"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Imagen de la Infografía", name: "image", widget: "image"}
+      - {label: "Descripción", name: "description", widget: "text"}
+
+  - name: "guias_lab"
+    label: "Guías Lab"
+    folder: "content/guias_lab"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nombre de la Guía", name: "title", widget: "string"}
+      - {label: "Documento PDF", name: "file", widget: "file"}
+      - {label: "Protocolo / Descripción", name: "body", widget: "markdown"}
+
+  - name: "proyectos"
+    label: "Proyectos"
+    folder: "content/proyectos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nombre del Proyecto", name: "title", widget: "string"}
+      - {label: "Estado", name: "status", widget: "string"}
+      - {label: "Imagen", name: "image", widget: "image"}
+      - {label: "Resumen", name: "body", widget: "markdown"}
+
+  - name: "talleres"
+    label: "Talleres"
+    folder: "content/talleres"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nombre del Taller", name: "title", widget: "string"}
+      - {label: "Fecha y Hora", name: "date", widget: "datetime"}
+      - {label: "Enlace de Registro", name: "link", widget: "string", required: false}
+      - {label: "Afiche / Imagen", name: "image", widget: "image"}
+      - {label: "Detalles", name: "body", widget: "markdown"}
