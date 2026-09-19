@@ -136,13 +136,8 @@
                 </div>
             </div>
 
-            <!-- Áreas de Investigación -->
-            <!-- Sección Líneas de Investigación y Desarrollo -->
-<section class="py-16 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <!-- Encabezado de la Sección -->
-   <!-- Sección Líneas de Investigación y Desarrollo -->
+           
+<!-- ================= SECCIÓN LÍNEAS DE INVESTIGACIÓN Y DESARROLLO ================= -->
 <section class="py-16 bg-gray-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
@@ -160,9 +155,9 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       
       <!-- Tarjeta 1: Bionutrientes Marinos -->
-      <div onclick="showSection('bionutrientes')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between border border-gray-100">
+      <div onclick="openAreaModal('Bionutrientes Marinos', 'fa-vial', 'Investigación y caracterización de componentes nutricionales y funcionales presentes en recursos hidrobiológicos, como proteínas, péptidos, hidrolizados, lípidos y compuestos bioactivos.', 'Esta línea aborda la identificación y análisis de péptidos bioactivos, perfiles de aminoácidos, ácidos grasos esenciales y capacidad antioxidante. Se enfoca en valorizar subproductos marinos para aplicaciones nutracéuticas y alimentarias.')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between border border-gray-100 group">
         <div>
-          <div class="w-12 h-12 bg-blue-100/70 text-[#0e3a60] rounded-xl flex items-center justify-center text-xl mb-4">
+          <div class="w-12 h-12 bg-blue-100/70 text-[#0e3a60] rounded-xl flex items-center justify-center text-xl mb-4 group-hover:bg-[#1d5b90] group-hover:text-white transition-colors">
             <i class="fa-solid fa-vial"></i>
           </div>
           <h3 class="text-xl font-bold text-[#0e3a60] mb-2">Bionutrientes Marinos</h3>
@@ -170,16 +165,16 @@
             Investigación y caracterización de componentes nutricionales y funcionales presentes en recursos hidrobiológicos, como proteínas, péptidos, hidrolizados, lípidos y compuestos bioactivos.
           </p>
         </div>
-        <div class="flex items-center text-[#1d5b90] font-semibold text-sm group">
-          <span>Ver área</span>
+        <div class="flex items-center text-[#1d5b90] font-semibold text-sm">
+          <span>Ver detalle del área</span>
           <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-200 group-hover:translate-x-1"></i>
         </div>
       </div>
 
       <!-- Tarjeta 2: Optimización de Procesos -->
-      <div onclick="showSection('optimizacion')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between border border-gray-100">
+      <div onclick="openAreaModal('Optimización de Procesos', 'fa-sliders', 'Evaluación y mejora de las condiciones de procesamiento para optimizar el aprovechamiento, transformación y valorización de recursos hidrobiológicos y sus componentes de interés.', 'Modelado y optimización de variables de proceso (temperatura, pH, tiempo, relación enzima/substrato) empleando herramientas como la Metodología de Superficie de Respuesta (RSM) para maximizar rendimientos hidrolíticos y conservación de bioactivos.')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between border border-gray-100 group">
         <div>
-          <div class="w-12 h-12 bg-blue-100/70 text-[#0e3a60] rounded-xl flex items-center justify-center text-xl mb-4">
+          <div class="w-12 h-12 bg-blue-100/70 text-[#0e3a60] rounded-xl flex items-center justify-center text-xl mb-4 group-hover:bg-[#1d5b90] group-hover:text-white transition-colors">
             <i class="fa-solid fa-sliders"></i>
           </div>
           <h3 class="text-xl font-bold text-[#0e3a60] mb-2">Optimización de Procesos</h3>
@@ -187,16 +182,16 @@
             Evaluación y mejora de las condiciones de procesamiento para optimizar el aprovechamiento, transformación y valorización de recursos hidrobiológicos y sus componentes de interés.
           </p>
         </div>
-        <div class="flex items-center text-[#1d5b90] font-semibold text-sm group">
-          <span>Ver área</span>
+        <div class="flex items-center text-[#1d5b90] font-semibold text-sm">
+          <span>Ver detalle del área</span>
           <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-200 group-hover:translate-x-1"></i>
         </div>
       </div>
 
       <!-- Tarjeta 3: Análisis Químico -->
-      <div onclick="showSection('analisis-quimico')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between border border-gray-100">
+      <div onclick="openAreaModal('Análisis Químico', 'fa-microscope', 'Caracterización de materias primas, fracciones, hidrolizados y productos mediante análisis químicos y fisicoquímicos para conocer su composición y propiedades.', 'Desarrollo de protocolos cromatográficos (HPLC, GC-FID) y espectrofotométricos (DPPH, ABTS, Trolox) para la evaluación cuantitativa y cualitativa de nutrientes, microplásticos y calidad físico-química.')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between border border-gray-100 group">
         <div>
-          <div class="w-12 h-12 bg-blue-100/70 text-[#0e3a60] rounded-xl flex items-center justify-center text-xl mb-4">
+          <div class="w-12 h-12 bg-blue-100/70 text-[#0e3a60] rounded-xl flex items-center justify-center text-xl mb-4 group-hover:bg-[#1d5b90] group-hover:text-white transition-colors">
             <i class="fa-solid fa-microscope"></i>
           </div>
           <h3 class="text-xl font-bold text-[#0e3a60] mb-2">Análisis Químico</h3>
@@ -204,16 +199,16 @@
             Caracterización de materias primas, fracciones, hidrolizados y productos mediante análisis químicos y fisicoquímicos para conocer su composición y propiedades.
           </p>
         </div>
-        <div class="flex items-center text-[#1d5b90] font-semibold text-sm group">
-          <span>Ver área</span>
+        <div class="flex items-center text-[#1d5b90] font-semibold text-sm">
+          <span>Ver detalle del área</span>
           <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-200 group-hover:translate-x-1"></i>
         </div>
       </div>
 
       <!-- Tarjeta 4: Tecnología de Recursos Hidrobiológicos -->
-      <div onclick="showSection('tecnologia-hidrobiologica')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between border border-gray-100 lg:col-start-1 lg:translate-x-1/2">
+      <div onclick="openAreaModal('Tecnología de Recursos Hidrobiológicos', 'fa-fish-fins', 'Desarrollo y evaluación de procesos para el aprovechamiento, transformación, conservación y valorización integral de recursos hidrobiológicos y sus subproductos.', 'Diseño e implementación de técnicas de conservación, microencapsulación y recubrimientos entéricos para preservar ingredientes funcionales y ampliar su vida útil en aplicaciones industriales.')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between border border-gray-100 lg:col-start-1 lg:translate-x-1/2 group">
         <div>
-          <div class="w-12 h-12 bg-blue-100/70 text-[#0e3a60] rounded-xl flex items-center justify-center text-xl mb-4">
+          <div class="w-12 h-12 bg-blue-100/70 text-[#0e3a60] rounded-xl flex items-center justify-center text-xl mb-4 group-hover:bg-[#1d5b90] group-hover:text-white transition-colors">
             <i class="fa-solid fa-fish-fins"></i>
           </div>
           <h3 class="text-xl font-bold text-[#0e3a60] mb-2">Tecnología de Recursos Hidrobiológicos</h3>
@@ -221,16 +216,16 @@
             Desarrollo y evaluación de procesos para el aprovechamiento, transformación, conservación y valorización integral de recursos hidrobiológicos y sus subproductos.
           </p>
         </div>
-        <div class="flex items-center text-[#1d5b90] font-semibold text-sm group">
-          <span>Ver área</span>
+        <div class="flex items-center text-[#1d5b90] font-semibold text-sm">
+          <span>Ver detalle del área</span>
           <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-200 group-hover:translate-x-1"></i>
         </div>
       </div>
 
       <!-- Tarjeta 5: Biotecnología Aplicada -->
-      <div onclick="showSection('biotecnologia')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between border border-gray-100 lg:col-start-2 lg:translate-x-1/2">
+      <div onclick="openAreaModal('Biotecnología Aplicada', 'fa-dna', 'Aplicación de procesos biológicos y enzimáticos para la transformación de materias primas, obtención de hidrolizados y aprovechamiento de compuestos de interés.', 'Uso de biocatalizadores como Alcalase 2.4L y otras enzimas comerciales para la producción controlada de hidrolizados proteicos con propiedades funcionales y de inhibición enzimática (ACE).')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between border border-gray-100 lg:col-start-2 lg:translate-x-1/2 group">
         <div>
-          <div class="w-12 h-12 bg-blue-100/70 text-[#0e3a60] rounded-xl flex items-center justify-center text-xl mb-4">
+          <div class="w-12 h-12 bg-blue-100/70 text-[#0e3a60] rounded-xl flex items-center justify-center text-xl mb-4 group-hover:bg-[#1d5b90] group-hover:text-white transition-colors">
             <i class="fa-solid fa-dna"></i>
           </div>
           <h3 class="text-xl font-bold text-[#0e3a60] mb-2">Biotecnología Aplicada</h3>
@@ -238,8 +233,8 @@
             Aplicación de procesos biológicos y enzimáticos para la transformación de materias primas, obtención de hidrolizados y aprovechamiento de compuestos de interés.
           </p>
         </div>
-        <div class="flex items-center text-[#1d5b90] font-semibold text-sm group">
-          <span>Ver área</span>
+        <div class="flex items-center text-[#1d5b90] font-semibold text-sm">
+          <span>Ver detalle del área</span>
           <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-200 group-hover:translate-x-1"></i>
         </div>
       </div>
@@ -247,6 +242,69 @@
     </div>
   </div>
 </section>
+
+<!-- MODAL INTERACTIVO PARA MOSTRAR DETALLES DEL ÁREA -->
+<div id="area-modal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden relative transform transition-all">
+    <div class="bg-[#0e3a60] p-6 text-white flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div id="modal-icon-bg" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-xl">
+          <i id="modal-icon" class="fa-solid fa-vial"></i>
+        </div>
+        <h3 id="modal-title" class="text-xl font-bold">Título del Área</h3>
+      </div>
+      <button onclick="closeAreaModal()" class="text-white/80 hover:text-white bg-white/10 hover:bg-white/20 w-8 h-8 rounded-full flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    
+    <div class="p-6 md:p-8 space-y-4">
+      <div>
+        <h4 class="text-xs font-bold text-[#1d5b90] uppercase tracking-wider mb-1">Resumen del Área</h4>
+        <p id="modal-summary" class="text-gray-700 text-base leading-relaxed font-medium">
+          Resumen inicial...
+        </p>
+      </div>
+
+      <hr class="border-gray-100">
+
+      <div>
+        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Alcance e Investigación Aplicada</h4>
+        <p id="modal-detail" class="text-gray-600 text-sm leading-relaxed">
+          Detalle extenso...
+        </p>
+      </div>
+
+      <div class="pt-4 flex justify-end">
+        <button onclick="closeAreaModal()" class="bg-[#1d5b90] hover:bg-[#0e3a60] text-white px-5 py-2 rounded-lg font-semibold text-sm transition">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPT PARA CONTROLAR EL MODAL -->
+<script>
+  function openAreaModal(titulo, icono, resumen, detalle) {
+    document.getElementById('modal-title').innerText = titulo;
+    document.getElementById('modal-icon').className = 'fa-solid ' + icono;
+    document.getElementById('modal-summary').innerText = resumen;
+    document.getElementById('modal-detail').innerText = detalle;
+    
+    const modal = document.getElementById('area-modal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function closeAreaModal() {
+    const modal = document.getElementById('area-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+</script>
+
+<!-- ================= SECCIÓN NOTICIAS Y DIVULGACIÓN ================= -->
         <!-- ================= SECCIÓN NOTICIAS Y DIVULGACIÓN ================= -->
         <section id="sec-noticias" class="page-section hidden py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="text-center mb-10">
