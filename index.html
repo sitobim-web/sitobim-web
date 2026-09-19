@@ -133,46 +133,111 @@
             </div>
 
             <!-- Áreas de Investigación -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-brand-dark">Líneas de Investigación y Desarrollo</h2>
-                    <p class="text-slate-600 mt-2">Conoce las áreas en las que trabajamos activamente en nuestro laboratorio</p>
-                </div>
+            <!-- Sección Líneas de Investigación y Desarrollo -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Encabezado de la Sección -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-extrabold text-[#0e3a60] sm:text-4xl">
+        Líneas de Investigación y Desarrollo
+      </h2>
+      <p class="mt-3 max-w-2xl mx-auto text-base text-gray-600 sm:text-lg">
+        Conoce las áreas que orientan nuestro trabajo en investigación, análisis, optimización y valorización de recursos hidrobiológicos.
+      </p>
+    </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl transition group">
-                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-brand-primary flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition transform">
-                            <i class="fa-solid fa-flask-vial"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">Bionutrientes Marinos</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Aislamiento, caracterización y evaluación de compuestos bioactivos, péptidos y aceites extraídos de fuentes hidrobiológicas.
-                        </p>
-                    </div>
+    <!-- Grid de 5 Tarjetas (3 arriba, 2 abajo centradas) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Tarjeta 1: Bionutrientes Marinos -->
+      <div onclick="showSection('bionutrientes')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between border border-gray-100">
+        <div>
+          <div class="w-12 h-12 bg-blue-50 text-[#1d5b90] rounded-xl flex items-center justify-center text-2xl mb-4">
+            🧪
+          </div>
+          <h3 class="text-xl font-bold text-[#0e3a60] mb-2">Bionutrientes Marinos</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6">
+            Investigación y caracterización de componentes nutricionales y funcionales presentes en recursos hidrobiológicos, como proteínas, péptidos, hidrolizados, lípidos y compuestos bioactivos.
+          </p>
+        </div>
+        <div class="flex items-center text-[#1d5b90] font-semibold text-sm group">
+          <span>Ver área</span>
+          <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-200 group-hover:translate-x-1"></i>
+        </div>
+      </div>
 
-                    <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl transition group">
-                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-brand-primary flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition transform">
-                            <i class="fa-solid fa-sliders"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">Optimización de Procesos</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Modelamiento químico y matemático para la extracción eficiente de bioactivos y diseño de procesos sustentables.
-                        </p>
-                    </div>
+      <!-- Tarjeta 2: Optimización de Procesos -->
+      <div onclick="showSection('optimizacion')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between border border-gray-100">
+        <div>
+          <div class="w-12 h-12 bg-blue-50 text-[#1d5b90] rounded-xl flex items-center justify-center text-2xl mb-4">
+            ⚙️
+          </div>
+          <h3 class="text-xl font-bold text-[#0e3a60] mb-2">Optimización de Procesos</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6">
+            Evaluación y mejora de las condiciones de procesamiento para optimizar el aprovechamiento, transformación y valorización de recursos hidrobiológicos y sus componentes de interés.
+          </p>
+        </div>
+        <div class="flex items-center text-[#1d5b90] font-semibold text-sm group">
+          <span>Ver área</span>
+          <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-200 group-hover:translate-x-1"></i>
+        </div>
+      </div>
 
-                    <div class="bg-white p-8 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl transition group">
-                        <div class="w-14 h-14 rounded-2xl bg-blue-50 text-brand-primary flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition transform">
-                            <i class="fa-solid fa-microscope"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-brand-dark mb-3">Análisis Químico y Biotecnología</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            Caracterización analítica avanzada mediante HPLC, GC-FID, ensayos antioxidantes (DPPH/ABTS) e inhibición de la ECA.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <!-- Tarjeta 3: Análisis Químico -->
+      <div onclick="showSection('analisis-quimico')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between border border-gray-100">
+        <div>
+          <div class="w-12 h-12 bg-blue-50 text-[#1d5b90] rounded-xl flex items-center justify-center text-2xl mb-4">
+            🔬
+          </div>
+          <h3 class="text-xl font-bold text-[#0e3a60] mb-2">Análisis Químico</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6">
+            Caracterización de materias primas, fracciones, hidrolizados y productos mediante análisis químicos y fisicoquímicos para conocer su composición y propiedades.
+          </p>
+        </div>
+        <div class="flex items-center text-[#1d5b90] font-semibold text-sm group">
+          <span>Ver área</span>
+          <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-200 group-hover:translate-x-1"></i>
+        </div>
+      </div>
 
+      <!-- Tarjeta 4: Tecnología de Recursos Hidrobiológicos -->
+      <div onclick="showSection('tecnologia-hidrobiologica')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between border border-gray-100 lg:col-start-1 lg:translate-x-1/2">
+        <div>
+          <div class="w-12 h-12 bg-blue-50 text-[#1d5b90] rounded-xl flex items-center justify-center text-2xl mb-4">
+            🐟
+          </div>
+          <h3 class="text-xl font-bold text-[#0e3a60] mb-2">Tecnología de Recursos Hidrobiológicos</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6">
+            Desarrollo y evaluación de procesos para el aprovechamiento, transformación, conservación y valorización integral de recursos hidrobiológicos y sus subproductos.
+          </p>
+        </div>
+        <div class="flex items-center text-[#1d5b90] font-semibold text-sm group">
+          <span>Ver área</span>
+          <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-200 group-hover:translate-x-1"></i>
+        </div>
+      </div>
+
+      <!-- Tarjeta 5: Biotecnología Aplicada -->
+      <div onclick="showSection('biotecnologia')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer flex flex-col justify-between border border-gray-100 lg:col-start-2 lg:translate-x-1/2">
+        <div>
+          <div class="w-12 h-12 bg-blue-50 text-[#1d5b90] rounded-xl flex items-center justify-center text-2xl mb-4">
+            🧬
+          </div>
+          <h3 class="text-xl font-bold text-[#0e3a60] mb-2">Biotecnología Aplicada</h3>
+          <p class="text-gray-600 text-sm leading-relaxed mb-6">
+            Aplicación de procesos biológicos y enzimáticos para la transformación de materias primas, obtención de hidrolizados y aprovechamiento de compuestos de interés.
+          </p>
+        </div>
+        <div class="flex items-center text-[#1d5b90] font-semibold text-sm group">
+          <span>Ver área</span>
+          <i class="fa-solid fa-arrow-right ml-2 transition-transform duration-200 group-hover:translate-x-1"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
         <!-- ================= SECCIÓN NOTICIAS Y DIVULGACIÓN ================= -->
         <section id="sec-noticias" class="page-section hidden py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="text-center mb-10">
