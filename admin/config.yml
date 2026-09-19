@@ -59,17 +59,16 @@ collections:
       - {label: "Imagen", name: "image", widget: "image"}
       - {label: "Resumen", name: "body", widget: "markdown"}
 
-  - name: "talleres"
+ - name: "talleres"
     label: "Talleres"
     folder: "content/talleres"
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Nombre del Taller", name: "title", widget: "string"}
-      - {label: "Fecha y Hora", name: "date", widget: "datetime"}
-      - {label: "Enlace de Registro", name: "link", widget: "string", required: false}
-      - {label: "Afiche / Imagen", name: "image", widget: "image"}
-      - {label: "Detalles", name: "body", widget: "markdown"}
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Descripción", name: "description", widget: "text" }
+      - { label: "Contenido", name: "body", widget: "markdown" }
       - name: "lineas_investigacion"
     label: "Líneas de Investigación"
     folder: "content/lineas"
