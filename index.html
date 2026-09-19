@@ -52,36 +52,54 @@
 <body class="bg-brand-bg text-slate-800 font-sans min-h-screen flex flex-col">
 
     <!-- BARRA DE NAVEGACIÓN -->
-    <header class="bg-white shadow-md sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <!-- Logo -->
-               <div class="flex items-center space-x-3 cursor-pointer" onclick="showSection('inicio')">
-                  <img src="admin/99d42cf9-e04e-417a-869b-53ed00c6be35.jpg" alt="SITOBIM Logo" class="w-12 h-12 rounded-full object-cover shadow-sm flex-shrink-0">
-                  <div>
-                    <span class="text-2xl font-extrabold tracking-wider text-brand-dark block">SITOBIM</span>
-                    <p class="text-xs text-brand-light font-medium leading-none">Tecnología, Optimización y Bionutrientes Marinos</p>
-                  </div>
-                </div>
-                <!-- Menú de Navegación Desktop -->
-                <nav class="hidden md:flex space-x-1 lg:space-x-8">
-                    <button onclick="showSection('inicio')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-brand-dark hover:text-brand-light hover:bg-brand-bg transition">Inicio</button>
-                    <button onclick="showSection('noticias')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-600 hover:text-brand-light hover:bg-brand-bg transition">Noticias</button>
-                    <button onclick="showSection('conocimientos')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-600 hover:text-brand-light hover:bg-brand-bg transition">Saberes</button>
-                    <button onclick="showSection('infografias')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-600 hover:text-brand-light hover:bg-brand-bg transition">Infografías</button>
-                    <button onclick="showSection('guias')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-600 hover:text-brand-light hover:bg-brand-bg transition">Guias Lab</button>
-                    <button onclick="showSection('proyectos')" class="nav-btn px-3 py-2 rounded-md text-sm font-semibold text-slate-600 hover:text-brand-light hover:bg-brand-bg transition">Proyectos</button>
-                    <button onclick="showSection('talleres')" class="nav-btn px-3 py-4 rounded-md text-sm font-semibold text-slate-600 hover:text-brand-light hover:bg-brand-bg transition">Talleres</button>
-                </nav>
+<header class="bg-white shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- 1. BLOQUE IZQUIERDO: Logo + Nombre SITOBIM -->
+      <div class="flex items-center space-x-3 cursor-pointer shrink-0" onclick="showSection('inicio')">
+        <img src="admin/99d42cf9-e04e-417a-869b-53ed00c6be35.jpg" alt="SITOBIM Logo" class="w-12 h-12 rounded-full object-cover shadow-sm flex-shrink-0">
+        <div>
+          <span class="text-2xl font-extrabold tracking-wider text-brand-dark block">SITOBIM</span>
+          <p class="text-xs text-brand-light font-medium leading-none">Tecnología, Optimización y Bionutrientes Marinos</p>
+        </div>
+      </div>
 
-                <!-- Botón Postulación Directo a Forms -->
-                <div class="hidden md:flex">
-                    <a href="https://forms.gle/k8fjHm7hkEfUR3738" target="_blank" class="gradient-bg text-white font-bold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:opacity-90 transition flex items-center space-x-2">
-                        <span>Postula 2026</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                </div>
+      <!-- 2. BLOQUE CENTRO: Menú de Navegación (con mx-12 para alejarlo de los lados) -->
+     <header class="bg-white shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- 1. BLOQUE IZQUIERDO: Logo + Nombre SITOBIM -->
+      <div class="flex items-center space-x-3 cursor-pointer shrink-0" onclick="showSection('inicio')">
+        <img src="admin/99d42cf9-e04e-417a-869b-53ed00c6be35.jpg" alt="SITOBIM Logo" class="w-12 h-12 rounded-full object-cover shadow-sm flex-shrink-0">
+        <div>
+          <span class="text-2xl font-extrabold tracking-wider text-brand-dark block">SITOBIM</span>
+          <p class="text-xs text-brand-light font-medium leading-none">Tecnología, Optimización y Bionutrientes Marinos</p>
+        </div>
+      </div>
 
+      <!-- 2. BLOQUE CENTRO: Menú de Navegación (con mx-12 para dar espacio a los costados) -->
+      <nav class="hidden lg:flex items-center space-x-6 mx-12">
+        <a href="javascript:void(0)" onclick="showSection('inicio')" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Inicio</a>
+        <a href="javascript:void(0)" onclick="showSection('noticias')" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Noticias</a>
+        <a href="javascript:void(0)" onclick="showSection('saberes')" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Saberes</a>
+        <a href="javascript:void(0)" onclick="showSection('infografias')" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Infografías</a>
+        <a href="javascript:void(0)" onclick="showSection('guias-lab')" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Guías Lab</a>
+        <a href="javascript:void(0)" onclick="showSection('proyectos')" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Proyectos</a>
+        <a href="javascript:void(0)" onclick="showSection('talleres')" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Talleres</a>
+      </nav>
+
+      <!-- 3. BLOQUE DERECHO: Botón de Postulación -->
+      <div class="shrink-0">
+        <a href="https://forms.gle/k8fjHm7hkEFUR3738" target="_blank" class="bg-[#1d5b90] hover:bg-[#0e3a60] text-white font-bold py-2.5 px-6 rounded-full shadow-md transition-all duration-200 flex items-center space-x-2">
+          <span>Postula 2026</span>
+          <i class="fa-solid fa-arrow-right text-sm"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
                 <!-- Botón Menú Móvil -->
                 <div class="md:hidden">
                     <button onclick="toggleMobileMenu()" class="text-brand-dark p-2 rounded-md focus:outline-none">
