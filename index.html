@@ -487,59 +487,64 @@
             </div>
         </section>
 
-<!-- ================= SECCIÓN TALLERES ================= -->
-<section id="sec-talleres" class="page-section scroll-mt-24 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">  
+<!-- ================= SECCIÓN TALLERES Y CAPACITACIONES ================= -->
+<section id="sec-talleres" class="page-section scroll-mt-24 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+  
   <!-- Encabezado de la Sección -->
   <div class="text-center mb-10">
     <h2 class="text-3xl font-extrabold text-brand-dark">Talleres y Capacitaciones</h2>
     <p class="text-slate-600 mt-2">Actividades prácticas, experimentales y seminarios de laboratorio</p>
   </div>
 
-  <!-- Grilla de Tarjetas -->
+  <!-- Contenedor en Grilla -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    
-<!-- TARJETA TALLER 1: JUREL -->
-<div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-slate-100 flex flex-col">
-  
-  <!-- Imagen de Jurel Fresco -->
-  <div class="relative h-48 bg-slate-800 overflow-hidden">
-    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80" 
-         alt="Caracterización de Jurel (Trachurus murphyi)" 
-         class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-500">
-    <span class="absolute top-3 right-3 bg-[#64b5f6] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
-      Experimental
-    </span>
-  </div>
 
-  <!-- Cuerpo de la Tarjeta -->
-  <div class="p-6 flex-1 flex flex-col justify-between">
-    <div>
-      <div class="text-xs font-semibold text-[#64b5f6] mb-2 flex items-center gap-1.5">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-        </svg>
-        09 de Abril, 2026
+    <!-- Tarjeta Taller 1: Jurel (Trachurus murphyi) -->
+    <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-slate-100 flex flex-col">
+      
+      <!-- Imagen de Jurel Entero de Laboratorio -->
+      <div class="relative h-48 bg-slate-50 overflow-hidden flex items-center justify-center p-2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Trachurus_trachurus.Chicharro.jpg/800px-Trachurus_trachurus.Chicharro.jpg" 
+             alt="Caracterización de Jurel (Trachurus murphyi)" 
+             class="w-full h-full object-contain hover:scale-105 transition-transform duration-500">
+        <span class="absolute top-3 right-3 bg-[#64b5f6] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+          Experimental
+        </span>
       </div>
-      <h3 class="text-lg font-bold text-[#0e3a60] mb-2 leading-snug">
-        Caracterización y análisis proximal de Jurel (Trachurus murphyi)
-      </h3>
-      <p class="text-slate-600 text-sm line-clamp-3 mb-4">
-        Actividad práctica y experimental orientada al análisis proximal y caracterización física de muestras pesqueras para evaluar su valor nutricional.
-      </p>
+
+      <!-- Cuerpo de la Tarjeta -->
+      <div class="p-6 flex-1 flex flex-col justify-between">
+        <div>
+          <div class="text-xs font-semibold text-[#64b5f6] mb-2 flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            09 de Abril, 2026
+          </div>
+          <h3 class="text-lg font-bold text-[#0e3a60] mb-2 leading-snug">
+            Caracterización y análisis proximal de Jurel (Trachurus murphyi)
+          </h3>
+          <p class="text-slate-600 text-sm line-clamp-3 mb-4">
+            Actividad práctica y experimental orientada al análisis proximal y caracterización física de muestras pesqueras para evaluar su valor nutricional.
+          </p>
+        </div>
+
+        <!-- Botón Celeste Funcional -->
+        <button onclick="document.getElementById('modal-taller-1').classList.remove('hidden')" 
+                class="w-full py-2.5 px-4 bg-[#64b5f6] hover:bg-[#4290ca] text-white font-semibold rounded-xl transition-colors duration-200 text-center flex items-center justify-center gap-2 text-sm shadow-sm cursor-pointer">
+          <span>Ver detalle completo</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </button>
+      </div>
     </div>
 
-    <!-- Botón Celeste que activa el Modal -->
-    <button onclick="document.getElementById('modal-taller-1').classList.remove('hidden')" 
-            class="w-full py-2.5 px-4 bg-[#64b5f6] hover:bg-[#4290ca] text-white font-semibold rounded-xl transition-colors duration-200 text-center flex items-center justify-center gap-2 text-sm shadow-sm cursor-pointer">
-      <span>Ver detalle completo</span>
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-      </svg>
-    </button>
-  </div>
-</div>
+  </div> <!-- Cierre del Grid para corregir la alineación del Footer -->
 
-<!-- VENTANA MODAL FLOTANTE (Información detallada al hacer clic) -->
+</section>
+
+<!-- ================= VENTANA MODAL INTERACTIVA DE DETALLE ================= -->
 <div id="modal-taller-1" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
   <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative border border-slate-100">
     
