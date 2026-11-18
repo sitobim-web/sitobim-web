@@ -55,42 +55,65 @@
 </head>
 <body class="bg-brand-bg text-slate-800 font-sans min-h-screen flex flex-col">
 
-    <!-- BARRA DE NAVEGACIÓN -->
+<!-- BARRA DE NAVEGACIÓN -->
 <header class="bg-white shadow-md sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-20">
-      
-      <!-- 1. BLOQUE IZQUIERDO: Logo + Nombre SITOBIM -->
-      <div class="flex items-center space-x-3 cursor-pointer shrink-0" onclick="showSection('inicio')">
-        <img src="admin/99d42cf9-e04e-417a-869b-53ed00c6be35.jpg" alt="SITOBIM Logo" class="w-12 h-12 rounded-full object-cover shadow-sm flex-shrink-0">
-        <div>
-          <span class="text-2xl font-extrabold tracking-wider text-brand-dark block">SITOBIM</span>
-          <p class="text-xs text-brand-light font-medium leading-none">Tecnología, Optimización y Bionutrientes Marinos</p>
-        </div>
-      </div>
+    <div class="flex items-center justify-between h-20 gap-4">
 
-    <!-- 2. BLOQUE CENTRO: Menú de Navegación (con desplazamiento directo) -->
-      <nav class="hidden lg:flex items-center space-x-6 mx-12">
-        <a href="#sec-inicio" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Inicio</a>
-        <a href="#sec-nosotros" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">¿Quiénes Somos?</a>
-        <a href="#sec-noticias" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Noticias</a>
-        <a href="#sec-conocimientos" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Saberes</a>
-        <a href="#sec-infografias" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Infografías</a>
-        <a href="#sec-guias" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Guías Lab</a>
-        <a href="#sec-proyectos" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Proyectos</a>
-        <a href="#sec-talleres" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Talleres</a>
+      <!-- Logo + nombre -->
+      <a href="#sec-inicio" class="flex items-center space-x-3 shrink-0">
+        <img src="images/uploads/99d42cf9-e04e-417a-869b-53ed00c6be35.jpg"
+             onerror="this.onerror=null;this.src='admin/99d42cf9-e04e-417a-869b-53ed00c6be35.jpg'"
+             alt="SITOBIM Logo" class="w-12 h-12 rounded-full object-cover shadow-sm flex-shrink-0">
+        <div>
+          <span class="text-2xl font-extrabold tracking-wider text-[#0e3a60] block">SITOBIM</span>
+          <p class="hidden sm:block xl:hidden 2xl:block text-xs text-[#4290ca] font-medium leading-none">Tecnología, Optimización y Bionutrientes Marinos</p>
+        </div>
+      </a>
+
+      <!-- Menú escritorio -->
+      <nav class="hidden xl:flex items-center gap-x-6 text-sm font-medium">
+        <a href="#sec-inicio" class="text-gray-700 hover:text-[#0e3a60] whitespace-nowrap transition-colors">Inicio</a>
+        <a href="#sec-nosotros" class="text-gray-700 hover:text-[#0e3a60] whitespace-nowrap transition-colors">¿Quiénes Somos?</a>
+        <a href="#sec-divulgacion" class="text-gray-700 hover:text-[#0e3a60] whitespace-nowrap transition-colors">Noticias</a>
+        <a href="#sec-conocimientos" class="text-gray-700 hover:text-[#0e3a60] whitespace-nowrap transition-colors">Saberes</a>
+        <a href="#sec-infografias" class="text-gray-700 hover:text-[#0e3a60] whitespace-nowrap transition-colors">Infografías</a>
+        <a href="#sec-guias" class="text-gray-700 hover:text-[#0e3a60] whitespace-nowrap transition-colors">Guías Lab</a>
+        <a href="#sec-proyectos" class="text-gray-700 hover:text-[#0e3a60] whitespace-nowrap transition-colors">Proyectos</a>
+        <a href="#sec-talleres" class="text-gray-700 hover:text-[#0e3a60] whitespace-nowrap transition-colors">Talleres</a>
       </nav>
 
-      <!-- 3. BLOQUE DERECHO: Botón de Postulación -->
-      <div class="shrink-0">
-        <a href="https://forms.gle/jHDnTYA5wJeENkFv9" target="_blank" class="bg-[#1d5b90] hover:bg-[#0e3a60] text-white font-bold py-2.5 px-6 rounded-full shadow-md transition-all duration-200 flex items-center space-x-2">
+      <!-- Botón postulación + hamburguesa -->
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="https://forms.gle/jHDnTYA5wJeENkFv9" target="_blank"
+           class="hidden sm:flex bg-[#1d5b90] hover:bg-[#0e3a60] text-white font-bold py-2.5 px-6 rounded-full shadow-md transition-all duration-200 items-center space-x-2 text-sm">
           <span>Postula 2026</span>
           <i class="fa-solid fa-arrow-right text-sm"></i>
         </a>
+        <button type="button" onclick="toggleMobileMenu()" aria-label="Abrir menú"
+                class="xl:hidden text-[#0e3a60] p-2 rounded-md focus:outline-none">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
       </div>
 
     </div>
   </div>
+
+  <!-- Menú móvil -->
+  <div id="mobile-menu" class="hidden xl:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-4 space-y-1 max-h-[75vh] overflow-y-auto">
+    <a href="#sec-inicio" onclick="toggleMobileMenu()" class="block px-3 py-2 text-[#0e3a60] font-semibold">Inicio</a>
+    <a href="#sec-nosotros" onclick="toggleMobileMenu()" class="block px-3 py-2 text-[#0e3a60] font-semibold">¿Quiénes Somos?</a>
+    <a href="#sec-equipo" onclick="toggleMobileMenu()" class="block px-3 py-2 text-slate-600 font-semibold">Asesor y Equipo</a>
+    <a href="#sec-noticias" onclick="toggleMobileMenu()" class="block px-3 py-2 text-slate-600 font-semibold">Líneas de Investigación</a>
+    <a href="#sec-divulgacion" onclick="toggleMobileMenu()" class="block px-3 py-2 text-slate-600 font-semibold">Noticias</a>
+    <a href="#sec-infografias" onclick="toggleMobileMenu()" class="block px-3 py-2 text-slate-600 font-semibold">Infografías</a>
+    <a href="#sec-conocimientos" onclick="toggleMobileMenu()" class="block px-3 py-2 text-slate-600 font-semibold">Saberes</a>
+    <a href="#sec-guias" onclick="toggleMobileMenu()" class="block px-3 py-2 text-slate-600 font-semibold">Guías Lab</a>
+    <a href="#sec-proyectos" onclick="toggleMobileMenu()" class="block px-3 py-2 text-slate-600 font-semibold">Proyectos</a>
+    <a href="#sec-talleres" onclick="toggleMobileMenu()" class="block px-3 py-2 text-slate-600 font-semibold">Talleres</a>
+    <a href="https://forms.gle/jHDnTYA5wJeENkFv9" target="_blank" class="block text-center gradient-bg text-white font-bold py-2.5 rounded-lg mt-2">Postula 2026</a>
+  </div>
+</header>
                 <!-- Botón Menú Móvil -->
                 <div class="md:hidden">
                     <button onclick="toggleMobileMenu()" class="text-brand-dark p-2 rounded-md focus:outline-none">
@@ -569,6 +592,30 @@
                 </div>
             </div>
         </section>
+                        <!-- Noticia 3: Hidrolizado de vísceras de jurel -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100 flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="relative h-48 gradient-bg overflow-hidden">
+                        <img src="images/uploads/hidrolizado.jpeg" alt="Hidrolizado proteico líquido de vísceras de jurel"
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                             onerror="this.style.display='none'">
+                        <span class="absolute top-3 left-3 bg-[#0e3a60] text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                            Divulgación Científica • Proyecto UNALM
+                        </span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between bg-gradient-to-b from-white to-[#f0f7fc]">
+                        <div>
+                            <h3 class="text-xl font-bold text-[#0e3a60] mb-3">Valorización de Vísceras de Jurel (<em>Trachurus murphyi</em>) mediante Hidrólisis Enzimática con Alcalase</h3>
+                            <p class="text-slate-600 text-sm mb-4">
+                                Avance del proyecto de investigación enfocado en transformar subproductos pesqueros descartados en un hidrolizado proteico líquido de alto valor nutricional bajo un enfoque de economía circular.
+                            </p>
+                        </div>
+                        <button onclick="openModal('modal-hidrolizado')"
+                                class="w-full py-2.5 px-4 bg-[#64b5f6] hover:bg-[#4290ca] text-white font-semibold rounded-xl transition-colors flex items-center justify-center gap-2 text-sm shadow-sm cursor-pointer">
+                            <span>Leer artículo completo</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                    </div>
+                </div>
 
         <!-- ================= SECCIÓN INFOGRAFÍAS Y SABÍAS QUÉ ================= -->
 <section id="sec-infografias" class="page-section scroll-mt-24 py-16 section-pad bg-slate-50">
@@ -756,6 +803,36 @@
       </div>
     </div>
 
+    <!-- Tarjeta Taller 2: Colágeno de piel de merluza -->
+    <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-100 flex flex-col">
+
+      <div class="relative h-48 gradient-bg overflow-hidden">
+        <img src="images/uploads/colageno-extraido.jpeg"
+             alt="Colágeno comestible gelificado de piel de merluza"
+             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+             onerror="this.style.display='none'">
+        <span class="absolute top-3 left-3 bg-[#0e3a60] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+          Biopolímeros Marinos
+        </span>
+      </div>
+
+      <div class="p-6 flex-1 flex flex-col justify-between bg-gradient-to-b from-white to-[#f0f7fc]">
+        <div>
+          <h3 class="text-lg font-bold text-[#0e3a60] mb-2 leading-snug">
+            Extracción de Colágeno Comestible a partir de Piel de Merluza (<em>Merluccius gayi peruanus</em>)
+          </h3>
+          <p class="text-slate-600 text-sm mb-4">
+            Obtención de colágeno y gelatina de grado alimentario mediante extracción térmica controlada y acidulación suave, aprovechando pieles de merluza sin el uso de reactivos químicos tóxicos.
+          </p>
+        </div>
+        <button onclick="document.getElementById('modal-taller-2').classList.remove('hidden')"
+                class="w-full py-2.5 px-4 bg-[#64b5f6] hover:bg-[#4290ca] text-white font-semibold rounded-xl transition-colors duration-200 flex items-center justify-center gap-2 text-sm shadow-sm cursor-pointer">
+          <span>Ver detalle completo</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </button>
+      </div>
+    </div>
+      
   </div> <!-- Cierre del Grid para corregir la alineación del Footer -->
 
 </section>
@@ -858,6 +935,216 @@
     </div>
   </div>
 </div>
+
+<!-- ================= MODAL TALLER 2: COLÁGENO DE MERLUZA ================= -->
+<div id="modal-taller-2" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto"
+     onclick="if(event.target===this)this.classList.add('hidden')">
+  <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
+
+    <!-- Cabecera -->
+    <div class="gradient-bg text-white p-6 sm:p-8 rounded-t-2xl relative">
+      <button onclick="document.getElementById('modal-taller-2').classList.add('hidden')" aria-label="Cerrar"
+              class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+      <span class="inline-block text-[11px] font-bold bg-[#64b5f6] text-white px-3 py-1 rounded-md uppercase tracking-wider">Biopolímeros Marinos · Taller Práctico</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold mt-3 leading-tight pr-8">
+        Extracción de Colágeno Comestible a partir de Piel de Merluza (<em>Merluccius gayi peruanus</em>)
+      </h2>
+    </div>
+
+    <div class="p-6 sm:p-8 space-y-6 text-slate-700">
+
+      <!-- Gancho -->
+      <div class="bg-[#f0f7fc] p-5 rounded-xl border-l-4 border-[#64b5f6]">
+        <h4 class="font-bold text-[#0e3a60] text-sm uppercase tracking-wider mb-1">De descarte industrial a biopolímero de alta pureza</h4>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          En la industria pesquera, las pieles de pescado suelen desecharse. En SITOBIM mostramos cómo la ciencia puede transformar ese subproducto en colágeno y gelatina de grado alimentario, sin químicos agresivos ni disolventes tóxicos, priorizando la inocuidad y la economía circular.
+        </p>
+      </div>
+
+      <!-- Valor tecnológico -->
+      <div class="bg-slate-50 p-5 rounded-xl border-l-4 border-[#1d5b90]">
+        <h4 class="font-bold text-[#0e3a60] text-sm uppercase tracking-wider mb-1">Una técnica limpia y controlada</h4>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Se combina una acidulación natural suave (jugo de limón o vinagre) con un estricto control de temperatura (60 °C a 70 °C). Así se abre la triple hélice del colágeno sin degradarlo, y se obtiene una matriz gelificable útil para la industria de alimentos y cosmética.
+        </p>
+      </div>
+
+      <!-- Objetivo -->
+      <div>
+        <h4 class="font-bold text-[#0e3a60] text-base mb-2">Objetivo y fundamento</h4>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Obtener colágeno hidrolizado y gelatina de grado alimentario mediante desnaturalización térmica controlada asistida por acidulación natural suave. El protocolo prioriza la inocuidad alimentaria al eliminar disolventes orgánicos y reactivos tóxicos, y aprovecha la matriz tisular de la piel limpia de merluza para obtener una solución gelificable de alta pureza.
+        </p>
+      </div>
+
+      <!-- Materiales -->
+      <div class="bg-[#f0f7fc] p-5 rounded-xl">
+        <h4 class="font-bold text-[#0e3a60] text-base mb-3">Insumos y materiales empleados</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-slate-600">
+          <div class="bg-white p-4 rounded-lg shadow-sm">
+            <span class="text-xs font-bold text-[#64b5f6] uppercase tracking-wider">Insumos</span>
+            <p class="mt-1 leading-relaxed">Piel de merluza fresca (libre de escamas y restos musculares), agua purificada o destilada y acidulante natural (jugo de limón filtrado o vinagre blanco comestible).</p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-sm">
+            <span class="text-xs font-bold text-[#64b5f6] uppercase tracking-wider">Equipos</span>
+            <p class="mt-1 leading-relaxed">Balanza de precisión, recipiente de acero inoxidable o vaso de precipitado, baño María con control termostático, termómetro de vástago, colador de malla fina con gasa estéril o tela tocuyo y moldes para gelificación.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Procedimiento -->
+      <div>
+        <h4 class="font-bold text-[#0e3a60] text-base mb-3">Procedimiento paso a paso</h4>
+        <ol class="space-y-3 text-sm text-slate-600">
+          <li class="flex gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-[#0e3a60] text-white text-xs font-bold flex items-center justify-center">1</span>
+            <div><strong class="text-[#0e3a60]">Pesaje y acondicionamiento.</strong> Lavado de la piel con agua fría para retirar impurezas superficiales y corte en trozos homogéneos de 0.5 × 0.5 cm, para aumentar la superficie de contacto y facilitar la transferencia térmica.</div>
+          </li>
+          <li class="flex gap-3 p-4 bg-[#f0f7fc] rounded-xl border border-slate-100">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-[#1d5b90] text-white text-xs font-bold flex items-center justify-center">2</span>
+            <div><strong class="text-[#0e3a60]">Mezcla y acidulación natural.</strong> Inmersión completa de los trozos en agua purificada acidificada suavemente con jugo de limón filtrado (o vinagre blanco) para ajustar el pH y favorecer la apertura de los enlaces del colágeno.</div>
+          </li>
+          <li class="flex gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-[#0e3a60] text-white text-xs font-bold flex items-center justify-center">3</span>
+            <div><strong class="text-[#0e3a60]">Extracción térmica controlada.</strong> Calentamiento en baño María entre 60 °C y 70 °C durante 1.5 a 2 horas, con agitación suave y ocasional para solubilizar el colágeno sin degradar térmicamente las proteínas.</div>
+          </li>
+          <li class="flex gap-3 p-4 bg-[#f0f7fc] rounded-xl border border-slate-100">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-[#1d5b90] text-white text-xs font-bold flex items-center justify-center">4</span>
+            <div><strong class="text-[#0e3a60]">Filtración en caliente.</strong> Retiro de la fuente de calor y filtración inmediata a través de tela tocuyo o gasa estéril sobre malla fina, para recolectar el líquido clarificado libre de residuos sólidos.</div>
+          </li>
+          <li class="flex gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="w-7 h-7 shrink-0 rounded-full bg-[#0e3a60] text-white text-xs font-bold flex items-center justify-center">5</span>
+            <div><strong class="text-[#0e3a60]">Moldeo y gelificación.</strong> Trasvase a moldes, reposo a temperatura ambiente hasta alcanzar ~25 °C y refrigeración a 4 °C durante 3 a 4 horas, hasta completar la gelificación y obtener una consistencia firme.</div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Evidencia visual -->
+      <figure class="bg-[#0e3a60] rounded-xl p-3 shadow-md">
+        <div class="rounded-lg overflow-hidden bg-slate-200">
+          <img src="images/uploads/colageno-extraido.jpeg" alt="Colágeno comestible gelificado" class="w-full max-h-96 object-cover" onerror="this.style.display='none'">
+        </div>
+        <figcaption class="text-xs text-blue-100 text-center mt-3 px-2 italic">
+          Colágeno comestible gelificado obtenido a partir de piel de merluza mediante extracción térmica controlada
+        </figcaption>
+      </figure>
+
+      <div class="pt-4 border-t border-slate-100 flex justify-end">
+        <button onclick="document.getElementById('modal-taller-2').classList.add('hidden')"
+                class="px-5 py-2 bg-[#1d5b90] hover:bg-[#0e3a60] text-white font-semibold rounded-xl text-sm transition-colors">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODAL: HIDROLIZADO DE VÍSCERAS DE JUREL ================= -->
+<div id="modal-hidrolizado" class="modal fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible"
+     onclick="if(event.target===this)closeModal('modal-hidrolizado')">
+  <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
+
+    <div class="gradient-bg text-white p-6 sm:p-8 rounded-t-2xl relative">
+      <button onclick="closeModal('modal-hidrolizado')" aria-label="Cerrar"
+              class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+      <span class="inline-block text-[11px] font-bold bg-[#64b5f6] text-white px-3 py-1 rounded-md uppercase tracking-wider">Divulgación Científica • Proyecto UNALM</span>
+      <h3 class="text-2xl sm:text-3xl font-extrabold mt-3 leading-tight pr-8">
+        Valorización de Vísceras de Jurel (<em>Trachurus murphyi</em>) mediante Hidrólisis Enzimática con Alcalase
+      </h3>
+    </div>
+
+    <div class="p-6 sm:p-8 space-y-6 text-slate-700">
+
+      <!-- Gancho -->
+      <div class="bg-[#f0f7fc] p-5 rounded-xl border-l-4 border-[#64b5f6]">
+        <h4 class="font-bold text-[#0e3a60] text-sm uppercase tracking-wider mb-1">Revalorizando el mar peruano desde la raíz</h4>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          El jurel (<em>Trachurus murphyi</em>) es uno de los recursos más importantes del Pacífico Sur, pero su procesamiento genera grandes volúmenes de vísceras que tradicionalmente se descartan. Este proyecto convierte esos residuos en un hidrolizado líquido rico en péptidos y aminoácidos, con potencial aplicación alimentaria.
+        </p>
+      </div>
+
+      <!-- Contexto -->
+      <div>
+        <h4 class="font-bold text-[#0e3a60] text-base mb-2">Contexto e impacto: economía circular</h4>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          El descarte de vísceras en el procesamiento del jurel representa una problemática ambiental y una pérdida de biomasa rica en nutrientes. Este proyecto, financiado en el XV Concurso de Círculos de Investigación de la UNALM, propone aprovechar estos subproductos mediante biocatálisis enzimática controlada para obtener un ingrediente proteico marino.
+        </p>
+      </div>
+
+      <!-- Valor científico -->
+      <div class="bg-slate-50 p-5 rounded-xl border-l-4 border-[#1d5b90]">
+        <h4 class="font-bold text-[#0e3a60] text-sm uppercase tracking-wider mb-1">El valor científico</h4>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          La enzima Alcalase permite una hidrólisis controlada que rompe proteínas complejas en cadenas cortas (péptidos y aminoácidos libres), lo que favorece que los nutrientes sean más absorbibles y funcionales. Todo se respalda con análisis fisicoquímicos bajo métodos oficiales AOAC.
+        </p>
+      </div>
+
+      <!-- Objetivo -->
+      <div class="bg-[#0e3a60] text-white p-5 rounded-xl">
+        <h4 class="font-bold text-sm uppercase tracking-wider mb-1 text-[#64b5f6]">Objetivo general</h4>
+        <p class="text-sm text-blue-100 leading-relaxed">
+          Obtener y caracterizar un hidrolizado proteico a partir de vísceras de jurel mediante hidrólisis enzimática con la proteasa Alcalase, evaluando la calidad inicial de la materia prima, la composición proximal y el perfil de aminoácidos del producto resultante.
+        </p>
+      </div>
+
+      <!-- Fases -->
+      <div>
+        <h4 class="font-bold text-[#0e3a60] text-base mb-3">Metodología general: 4 fases ejecutadas</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-slate-600">
+          <div class="p-4 rounded-xl bg-[#f0f7fc] border border-slate-100">
+            <span class="text-xs font-bold text-[#64b5f6]">FASE 1</span>
+            <h5 class="font-bold text-[#0e3a60] mb-1">Materia prima y fraccionamiento</h5>
+            <p class="leading-relaxed">Control de frescura mediante análisis sensorial descriptivo (Tabla de Wittfogel), registro morfométrico, determinación macroscópica de madurez sexual y separación anatómica de fracciones (cabeza, agallas, gónadas y vísceras).</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+            <span class="text-xs font-bold text-[#64b5f6]">FASE 2</span>
+            <h5 class="font-bold text-[#0e3a60] mb-1">Hidrólisis enzimática controlada</h5>
+            <p class="leading-relaxed">Procesamiento de las vísceras acondicionadas con la enzima proteolítica Alcalase en baño María bajo condiciones térmicas controladas, con monitoreo cinético continuo de sólidos solubles (°Brix) mediante refractometría.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+            <span class="text-xs font-bold text-[#64b5f6]">FASE 3</span>
+            <h5 class="font-bold text-[#0e3a60] mb-1">Estabilización y evaluación térmica</h5>
+            <p class="leading-relaxed">División del hidrolizado en dos tratamientos (con y sin pasteurización térmica), conservados en refrigeración para evaluar la estabilidad del producto.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-[#f0f7fc] border border-slate-100">
+            <span class="text-xs font-bold text-[#64b5f6]">FASE 4</span>
+            <h5 class="font-bold text-[#0e3a60] mb-1">Caracterización fisicoquímica y nutricional</h5>
+            <p class="leading-relaxed">Composición proximal (humedad, cenizas, proteína bruta por Semi-micro Kjeldahl y grasa total por Soxhlet, bajo métodos oficiales AOAC) y perfil de aminoácidos (aminograma) para validar su calidad biológica frente a proteínas de referencia.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Equipo -->
+      <div class="bg-[#f0f7fc] p-5 rounded-xl">
+        <h4 class="font-bold text-[#0e3a60] text-base mb-3">Equipo ejecutor</h4>
+        <p class="text-sm text-slate-600 mb-3"><strong class="text-[#0e3a60]">Docente Asesor:</strong> Prof. Raul Del Carmen Porturas Olaechea</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs font-semibold bg-[#0e3a60] text-white px-3 py-1.5 rounded-full">Cindy Celina Lunazco Santacruz · Responsable</span>
+          <span class="text-xs font-semibold bg-[#1d5b90] text-white px-3 py-1.5 rounded-full">Solange Mary Moreto Estela · Co-Responsable</span>
+          <span class="text-xs font-semibold bg-white text-[#1d5b90] border border-[#1d5b90]/30 px-3 py-1.5 rounded-full">Cynthia Alexandra Flores Vilca · Integrante</span>
+          <span class="text-xs font-semibold bg-white text-[#1d5b90] border border-[#1d5b90]/30 px-3 py-1.5 rounded-full">Geraldine Vanessa Jauregui Janampa · Integrante</span>
+        </div>
+      </div>
+
+      <!-- Evidencia visual -->
+      <figure class="bg-[#0e3a60] rounded-xl p-3 shadow-md">
+        <div class="rounded-lg overflow-hidden bg-slate-200">
+          <img src="images/uploads/hidrolizado.jpeg" alt="Hidrolizado proteico líquido de vísceras de jurel" class="w-full max-h-96 object-cover" onerror="this.style.display='none'">
+        </div>
+        <figcaption class="text-xs text-blue-100 text-center mt-3 px-2 italic">
+          Hidrolizado proteico líquido obtenido a partir de vísceras de jurel (<em>Trachurus murphyi</em>) en laboratorio
+        </figcaption>
+      </figure>
+
+      <div class="pt-4 border-t border-slate-100 flex justify-end">
+        <button onclick="closeModal('modal-hidrolizado')" class="px-5 py-2 bg-[#1d5b90] hover:bg-[#0e3a60] text-white font-semibold rounded-xl text-sm transition-colors">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+        
     <!-- Modal Noticia 1 -->
     <div id="modal-noticia-1" class="modal fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible">
         <div class="bg-white rounded-2xl max-w-2xl w-full p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
@@ -894,36 +1181,55 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="bg-brand-dark text-white py-12 mt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <span class="text-2xl font-extrabold tracking-wider">SITOBIM</span>
-                <p class="text-slate-300 text-xs mt-2 leading-relaxed">
-                    Semillero de Investigación en Tecnología, Optimización y Bionutrientes Marinos. Promoviendo la excelencia científica en investigación hidrobiológica.
-                </p>
-            </div>
-            <div>
-                <h4 class="font-bold text-sm text-brand-accent uppercase tracking-wider mb-4">Enlaces Rápidos</h4>
-                <ul class="space-y-2 text-sm text-slate-300">
-                    <li><button onclick="showSection('inicio')" class="hover:text-white">Inicio</button></li>
-                    <li><button onclick="showSection('noticias')" class="hover:text-white">Noticias</button></li>
-                    <li><button onclick="showSection('guias')" class="hover:text-white">Guías de Laboratorio</button></li>
-                    <li><a href="https://forms.gle/jHDnTYA5wJeENkFv9" target="_blank" class="hover:text-white">Convocatoria 2026</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold text-sm text-brand-accent uppercase tracking-wider mb-4">Contacto y Postulación</h4>
-                <p class="text-sm text-slate-300 mb-4">Universidad Nacional Agraria La Molina (UNALM)</p>
-                <a href="https://forms.gle/jHDnTYA5wJeENkFv9" target="_blank" class="inline-block bg-brand-light text-white font-bold px-4 py-2 rounded-lg text-sm hover:bg-brand-primary transition">
-                    Formulario de Postulación
-                </a>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-700/50 mt-8 pt-6 text-center text-xs text-slate-400">
-            © 2026 SITOBIM - Semillero de Investigación. Todos los derechos reservados.
-        </div>
-    </footer>
+  <!-- FOOTER -->
+<footer class="bg-[#0e3a60] text-white pt-12 pb-6 mt-0">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+    <div>
+      <span class="text-2xl font-extrabold tracking-wider">SITOBIM</span>
+      <p class="text-slate-300 text-xs mt-2 leading-relaxed">
+        Semillero de Investigación en Tecnología, Optimización y Bionutrientes Marinos. Promoviendo la excelencia científica en investigación hidrobiológica.
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-bold text-sm text-[#64b5f6] uppercase tracking-wider mb-4">Conoce SITOBIM</h4>
+      <ul class="space-y-2 text-sm text-slate-300">
+        <li><a href="#sec-inicio" class="hover:text-white transition-colors">Inicio</a></li>
+        <li><a href="#sec-nosotros" class="hover:text-white transition-colors">¿Quiénes Somos?</a></li>
+        <li><a href="#sec-equipo" class="hover:text-white transition-colors">Asesor y Equipo</a></li>
+        <li><a href="#sec-noticias" class="hover:text-white transition-colors">Líneas de Investigación</a></li>
+        <li><a href="#sec-divulgacion" class="hover:text-white transition-colors">Noticias y Divulgación</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-bold text-sm text-[#64b5f6] uppercase tracking-wider mb-4">Aprende y Participa</h4>
+      <ul class="space-y-2 text-sm text-slate-300">
+        <li><a href="#sec-infografias" class="hover:text-white transition-colors">Infografías</a></li>
+        <li><a href="#sec-conocimientos" class="hover:text-white transition-colors">Biblioteca de Saberes</a></li>
+        <li><a href="#sec-guias" class="hover:text-white transition-colors">Guías de Laboratorio</a></li>
+        <li><a href="#sec-proyectos" class="hover:text-white transition-colors">Proyectos</a></li>
+        <li><a href="#sec-talleres" class="hover:text-white transition-colors">Talleres</a></li>
+        <li><a href="https://forms.gle/jHDnTYA5wJeENkFv9" target="_blank" class="hover:text-white transition-colors">Convocatoria 2026</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-bold text-sm text-[#64b5f6] uppercase tracking-wider mb-4">Contacto y Postulación</h4>
+      <p class="text-sm text-slate-300 mb-1">Facultad de Pesquería</p>
+      <p class="text-sm text-slate-300 mb-4">Universidad Nacional Agraria La Molina (UNALM)</p>
+      <a href="https://forms.gle/jHDnTYA5wJeENkFv9" target="_blank"
+         class="inline-block bg-[#4290ca] text-white font-bold px-4 py-2 rounded-lg text-sm hover:bg-[#1d5b90] transition">
+        Formulario de Postulación
+      </a>
+    </div>
+
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-700/50 mt-8 pt-6 text-center text-xs text-slate-400">
+    © 2026 SITOBIM - Semillero de Investigación. Todos los derechos reservados.
+  </div>
+</footer>
 
     <!-- JAVASCRIPT DE INTERACTIVIDAD -->
     <script>
