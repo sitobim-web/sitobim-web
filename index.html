@@ -67,6 +67,7 @@
 
     <!-- 2. BLOQUE CENTRO: Menú de Navegación (con desplazamiento directo) -->
       <nav class="hidden lg:flex items-center space-x-6 mx-12">
+        <a href="#sec-nosotros" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">¿Quiénes Somos?</a>
         <a href="#sec-inicio" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Inicio</a>
         <a href="#sec-noticias" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Noticias</a>
         <a href="#sec-conocimientos" class="text-gray-700 hover:text-[#0e3a60] font-medium transition-colors">Saberes</a>
@@ -97,6 +98,7 @@
 
     <!-- Menú Móvil Desplegable -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-4 space-y-2">
+            <a href="#sec-nosotros" onclick="toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-brand-dark font-semibold">¿Quiénes Somos?</a>
             <a href="#sec-inicio" onclick="toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-brand-dark font-semibold">Inicio</a>
             <a href="#sec-noticias" onclick="toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-slate-600 font-semibold">Noticias</a>
             <a href="#sec-conocimientos" onclick="toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-slate-600 font-semibold">Saberes</a>
@@ -135,6 +137,142 @@
                 </div>
             </div>
 
+<!-- ================= SECCIÓN ¿QUIÉNES SOMOS?, ASESOR Y EQUIPO ================= -->
+<section id="sec-nosotros" class="page-section scroll-mt-24 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-white">
+  
+  <!-- Identidad SITOBIM -->
+  <div class="text-center max-w-3xl mx-auto mb-12">
+    <span class="text-xs font-bold text-[#64b5f6] uppercase tracking-wider bg-[#f0f7fc] px-3 py-1 rounded-full">Identidad Institucional</span>
+    <h2 class="text-3xl font-extrabold text-[#0e3a60] mt-3">¿Quiénes Somos?</h2>
+    <p class="text-slate-600 mt-4 text-sm sm:text-base leading-relaxed">
+      <strong>SITOBIM</strong> (Semillero de Investigación, Tecnología y Optimización de Bionutrientes Marinos) pertenece a la Facultad de Pesquería de la <strong>Universidad Nacional Agraria La Molina (UNALM)</strong>. Somos una comunidad académica conformada por estudiantes enfocados en la investigación científica, el desarrollo tecnológico y el aprovechamiento sostenible de los recursos hidrobiológicos.
+    </p>
+  </div>
+
+  <!-- Misión y Visión -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
+    <div class="bg-[#f0f7fc] p-6 sm:p-8 rounded-2xl border border-slate-200/60">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl bg-[#0e3a60] text-white flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        </div>
+        <h3 class="text-xl font-bold text-[#0e3a60]">Misión</h3>
+      </div>
+      <p class="text-sm text-slate-600 leading-relaxed">
+        Contribuir al desarrollo de tecnologías sostenibles mediante la investigación aplicada de recursos marinos y productos hidrobiológicos, promoviendo su valorización en alimentos, suplementos y bioproductos de alto valor agregado, fomentando la formación científica, la seguridad alimentaria y la economía circular.
+      </p>
+    </div>
+
+    <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200/60">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl bg-[#64b5f6] text-white flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+        </div>
+        <h3 class="text-xl font-bold text-[#0e3a60]">Visión</h3>
+      </div>
+      <p class="text-sm text-slate-600 leading-relaxed">
+        Ser un semillero universitario referente en investigación científica aplicada al uso sostenible de los recursos marinos, destacando por la generación de conocimiento útil, la formación de estudiantes investigadores y el desarrollo de proyectos innovadores con enfoque técnico, ambiental y social.
+      </p>
+    </div>
+  </div>
+
+  <!-- Nuestras 5 Áreas Temáticas -->
+  <div class="mb-16">
+    <h3 class="text-xl font-bold text-[#0e3a60] text-center mb-6">Áreas Temáticas de Investigación</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div class="p-4 rounded-xl bg-white border border-slate-200/80 shadow-sm">
+        <span class="text-xs font-bold text-[#64b5f6]">01</span>
+        <h4 class="font-bold text-[#0e3a60] text-sm mt-1">Tecnología de Recursos Hidrobiológicos</h4>
+        <p class="text-xs text-slate-600 mt-1.5">Caracterización física, frescura, conservación y rendimiento de materias primas marinas.</p>
+      </div>
+      <div class="p-4 rounded-xl bg-white border border-slate-200/80 shadow-sm">
+        <span class="text-xs font-bold text-[#64b5f6]">02</span>
+        <h4 class="font-bold text-[#0e3a60] text-sm mt-1">Optimización de Procesos</h4>
+        <p class="text-xs text-slate-600 mt-1.5">Evaluación de parámetros tecnológicos, tiempos y temperaturas para maximizar eficiencia.</p>
+      </div>
+      <div class="p-4 rounded-xl bg-white border border-slate-200/80 shadow-sm">
+        <span class="text-xs font-bold text-[#64b5f6]">03</span>
+        <h4 class="font-bold text-[#0e3a60] text-sm mt-1">Bionutrientes Marinos</h4>
+        <p class="text-xs text-slate-600 mt-1.5">Estudio de proteínas, péptidos bioactivos, colágeno y valorización de subproductos.</p>
+      </div>
+      <div class="p-4 rounded-xl bg-white border border-slate-200/80 shadow-sm">
+        <span class="text-xs font-bold text-[#64b5f6]">04</span>
+        <h4 class="font-bold text-[#0e3a60] text-sm mt-1">Biotecnología Aplicada</h4>
+        <p class="text-xs text-slate-600 mt-1.5">Aplicación de bioprocesos enzimáticos, fermentación y microbiología alimentaria.</p>
+      </div>
+      <div class="p-4 rounded-xl bg-white border border-slate-200/80 shadow-sm">
+        <span class="text-xs font-bold text-[#64b5f6]">05</span>
+        <h4 class="font-bold text-[#0e3a60] text-sm mt-1">Análisis Químico</h4>
+        <p class="text-xs text-slate-600 mt-1.5">Determinación proximal, perfil aminoacídico y control fisicoquímico de calidad.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sub-bloque: Docente Asesor e Integrantes -->
+  <div class="pt-10 border-t border-slate-100">
+    <div class="text-center mb-10">
+      <h3 class="text-2xl font-extrabold text-[#0e3a60]">Docente Asesor y Evolución del Semillero</h3>
+      <p class="text-sm text-slate-600 mt-1">Crecimiento de nuestra comunidad académica en la Facultad de Pesquería – UNALM</p>
+    </div>
+
+    <!-- Tarjeta Docente Asesor -->
+    <div class="max-w-3xl mx-auto mb-12 bg-[#f0f7fc] rounded-2xl p-6 sm:p-8 border border-slate-200/70 shadow-sm flex flex-col sm:flex-row items-center gap-6">
+      <div class="w-32 h-32 sm:w-36 sm:h-36 shrink-0 rounded-2xl overflow-hidden bg-slate-200 border-2 border-white shadow-md">
+        <img src="imágenes/asesor-porturas.jpg" alt="Porturas Olaechea Raul Del Carmen" class="w-full h-full object-cover">
+      </div>
+      <div class="text-center sm:text-left">
+        <span class="text-xs font-bold text-white bg-[#0e3a60] px-3 py-1 rounded-md uppercase tracking-wider">Docente Asesor</span>
+        <h4 class="text-xl font-bold text-[#0e3a60] mt-2">Porturas Olaechea, Raul Del Carmen</h4>
+        <p class="text-sm font-medium text-[#4290ca] mb-2">Facultad de Pesquería – UNALM</p>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Docente investigador especialista en tecnología pesquera, evaluación sensorial, caracterización fisicoquímica y aprovechamiento integral de recursos hidrobiológicos. Guía científica y metodológica del semillero SITOBIM.
+        </p>
+      </div>
+    </div>
+
+    <!-- Galería de Evolución del Equipo (3 Convocatorias) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Etapa 1: Equipo Inicial -->
+      <div class="bg-slate-50 rounded-2xl p-3 border border-slate-200/70 shadow-sm flex flex-col">
+        <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-200">
+          <img src="imágenes/equipo1-sitobim.jpg" alt="Equipo inicial SITOBIM" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-3 text-center">
+          <span class="text-xs font-bold text-[#64b5f6] uppercase tracking-wider">Etapa Fundacional</span>
+          <h5 class="font-bold text-[#0e3a60] text-sm mt-1">Equipo Inicial SITOBIM</h5>
+          <p class="text-xs text-slate-500 mt-1">Conformación del núcleo fundador del semillero en la Facultad de Pesquería.</p>
+        </div>
+      </div>
+
+      <!-- Etapa 2: Primera Convocatoria -->
+      <div class="bg-slate-50 rounded-2xl p-3 border border-slate-200/70 shadow-sm flex flex-col">
+        <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-200">
+          <img src="imágenes/equipo2-sitobim.jpg" alt="Equipo SITOBIM Primera Convocatoria" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-3 text-center">
+          <span class="text-xs font-bold text-[#64b5f6] uppercase tracking-wider">Crecimiento</span>
+          <h5 class="font-bold text-[#0e3a60] text-sm mt-1">Primera Convocatoria</h5>
+          <p class="text-xs text-slate-500 mt-1">Incorporación de nuevos estudiantes investigadores y consolidación de áreas temáticas.</p>
+        </div>
+      </div>
+
+      <!-- Etapa 3: Tercera Convocatoria -->
+      <div class="bg-slate-50 rounded-2xl p-3 border border-slate-200/70 shadow-sm flex flex-col">
+        <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-200">
+          <img src="imágenes/equipo3-sitobim.jpg" alt="Equipo SITOBIM Tercera Convocatoria" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="p-3 text-center">
+          <span class="text-xs font-bold text-[#0e3a60] uppercase tracking-wider">Actualidad</span>
+          <h5 class="font-bold text-[#0e3a60] text-sm mt-1">Tercera Convocatoria</h5>
+          <p class="text-xs text-slate-500 mt-1">Comunidad actual desarrollando proyectos de biotecnología marina y valorización.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
            
 <!-- ================= SECCIÓN LÍNEAS DE INVESTIGACIÓN Y DESARROLLO ================= -->
 <section id="sec-noticias" class="page-section scroll-mt-24 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
